@@ -35,7 +35,7 @@ seguidores usuario usuarios = filter (seguidos usuarios) (nombre usuario)
 -- la idea es filtrar la lista de los seguidos de los usuarios, y devuelva los que siguen al usuario principal y eso serian sus seguidores
 
 favearUnMensaje :: Mensaje -> Mensaje
-favearUnMensaje mensaje = mensaje{favs mensaje +1}
+favearUnMensaje mensaje = mensaje{favs = favs mensaje +1}
 
 editar :: Mensaje -> String ->Mensaje
 editar mensaje textoNuevo = mensaje{texto = textoNuevo:texto mensaje}
@@ -53,8 +53,8 @@ data Acciones = unaAccion{
 
 puntoCinco :: Mensaje -> Acciones -> Acciones -> Mensaje
 puntoCinco mensaje accion1 accion2 = 
-    | valoracion (realizar (accion1)) > valoracion(realizar (accion2)) = realizar accion1 mensaje 
-    | otherwise = realizar accion2 mensaje
+ | valoracion (realizar (accion1)) > valoracion(realizar (accion2)) = realizar accion1 mensaje 
+ | otherwise = realizar accion2 mensaje
 
 
 
